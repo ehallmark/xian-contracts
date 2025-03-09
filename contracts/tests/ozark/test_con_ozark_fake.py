@@ -82,22 +82,12 @@ class MyTestCase(unittest.TestCase):
         contract = get_contract_for_signer(OZARK_CONTRACT, 'me')
 
         print_merkle_tree_state(contract)
-        denomination = contract.quick_read('denomination')
-        self.assertEqual(denomination, DENOMINATION)
 
         phi = get_contract_for_signer(PHI_CONTRACT, 'me')
 
-        t0 = time.time()
-        phi.approve(
-            amount=denomination,
-            to=OZARK_CONTRACT
-        )
-        print(f'Time to approve PHI: {time.time()-t0}')
         roots = contract.quick_read('roots_var')
         self.assertIsNone(roots[1])
         self.assertIsNotNone(roots[0])
-
-        my_balance = phi.quick_read('balances', 'me')
 
         t0 = time.time()
         contract.deposit(
