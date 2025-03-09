@@ -8,7 +8,7 @@ load_dotenv()
 #with open(f'./contracts/ozark/optimized/con_ozark.py', 'r') as file:
 #    code = file.read()
 
-contract_name = 'con_ozark_interface_fake'
+contract_name = 'con_ozark_interface_fake_v2'
 with open(f'./contracts/ozark/optimized/{contract_name}.py', 'r') as file:
     code = file.read()
 
@@ -19,14 +19,14 @@ xian = Xian(os.getenv('XIAN_NETWORK_URL'), wallet=wallet)
 
 # Deploy contract to network and pass arguments to it
 arguments = {
-    "denomination_value": 1000,
+    "denomination_value": 10,
     "token_contract_value": "currency"
 }
 
 submit = xian.submit_contract(
     contract_name,
     code,
-    #args=arguments,
+    args=arguments,
     stamps=2000
 )
 
