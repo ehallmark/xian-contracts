@@ -1,3 +1,4 @@
+# con_xmt_xst001
 # LST001
 balances = Hash(default_value=0)
 # LST002
@@ -11,8 +12,8 @@ def seed():
     # LST001 - MINT SUPPLY to wallet that submits the contract
     balances[ctx.caller] = 1_000_000_000
     # LST002
-    metadata['token_name'] = "Gamma Phi"
-    metadata['token_symbol'] = "PHI"
+    metadata['token_name'] = "Xian Market"
+    metadata['token_symbol'] = "XMT"
     metadata['token_logo_url'] = 'https://some.token.url/test-token.png'
     metadata['token_website'] = 'https://some.token.url'
     metadata['total_supply'] = balances[ctx.caller]
